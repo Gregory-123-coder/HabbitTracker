@@ -1,6 +1,30 @@
-this is a habbit tracker app which is for the purpose of assessment ,
-forserring up the project 
-1)first run the pub get command in the cmd line
-2)click on the run button to start building of gradle and apk file
+# 🧘‍♂️ Daily Habit Tracker App
 
-The app has a add button which allows 
+A **Flutter** application to help users track and build daily habits efficiently and intuitively.
+
+## 🚀 Getting Started
+
+This project is the starting point for a Flutter application. It includes basic setup and a modular structure to build a robust habit tracking app.
+
+### 📱 Features
+
+- Add, edit, and delete daily habits
+- Mark habits as completed
+- Streak and productivity visualization
+- Simple and intuitive UI
+
+
+---
+
+## 🛠️ Installation & Setup
+
+Make sure you have [Flutter](https://docs.flutter.dev/get-started/install) installed.
+
+```bash
+flutter --version
+dart --version
+git clone https://github.com/your-username/habit_tracker.git
+cd habit_tracker
+flutter pub get
+flutter run
+
