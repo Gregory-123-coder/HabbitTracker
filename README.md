@@ -1,16 +1,30 @@
-# habbit_tracking
+# 🧘‍♂️ Daily Habit Tracker App
 
-A new Flutter project.
+A **Flutter** application to help users track and build daily habits efficiently and intuitively.
 
-## Getting Started
+## 🚀 Getting Started
 
-This project is a starting point for a Flutter application.
+This project is the starting point for a Flutter application. It includes basic setup and a modular structure to build a robust habit tracking app.
 
-A few resources to get you started if this is your first Flutter project:
+### 📱 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Add, edit, and delete daily habits
+- Mark habits as completed
+- Streak and productivity visualization
+- Simple and intuitive UI
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+---
+
+## 🛠️ Installation & Setup
+
+Make sure you have [Flutter](https://docs.flutter.dev/get-started/install) installed.
+
+```bash
+flutter --version
+dart --version
+git clone https://github.com/your-username/habit_tracker.git
+cd habit_tracker
+flutter pub get
+flutter run
+
