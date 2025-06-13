@@ -60,6 +60,31 @@ class _TaskManagerAppState extends State<TaskManagerApp> {
     });
   }
 
+  void _clearCompletedTasks() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text("Clear Completed Tasks?"),
+        content: Text("Are you sure you want to delete all completed tasks?"),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("Cancel"),
+          ),
+          TextButton(
+            onPressed: () {
+              setState(() {
+                _tasks.removeWhere((task) => task.status == 'Completed');
+              });
+              Navigator.pop(context);
+            },
+            child: Text("Clear"),
+          ),
+        ],
+      ),
+    );
+  }
+
   void _showAddTaskDialog() {
     showDialog(
       context: context,
@@ -152,7 +177,7 @@ class _TaskManagerAppState extends State<TaskManagerApp> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Habit tracker"),
+          title: Text("Habit Tracker"),
           backgroundColor: Colors.brown[400],
         ),
         body: Column(
@@ -186,7 +211,7 @@ class _TaskManagerAppState extends State<TaskManagerApp> {
                   return Card(
                     color: task.status == 'Completed' ? Colors.green[100] : Colors.orange[100],
                     child: ListTile(
-                      leading: Icon(Icons.pets, color: Colors.brown),
+
                       title: Text(task.title),
                       subtitle: Text(
                         "${task.description}\nDeadline: ${task.deadline.toLocal()}".split(' ')[0],
@@ -205,12 +230,31 @@ class _TaskManagerAppState extends State<TaskManagerApp> {
             ),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _showAddTaskDialog,
-          backgroundColor: Colors.brown,
-          child: Icon(Icons.add),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              onPressed: _showAddTaskDialog,
+              backgroundColor: Colors.brown,
+              heroTag: "addTask",
+              child: Icon(Icons.add),
+              tooltip: "Add Task",
+            ),
+            SizedBox(width: 10),
+            FloatingActionButton(
+              onPressed: _clearCompletedTasks,
+              backgroundColor: Colors.redAccent,
+              heroTag: "clearCompleted",
+              child: Icon(Icons.delete),
+              tooltip: "Clear Completed Tasks",
+            ),
+          ],
         ),
       ),
     );
   }
+}
+
+void main() {
+  runApp(TaskManagerApp());
 }
